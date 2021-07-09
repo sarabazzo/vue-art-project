@@ -5,13 +5,13 @@
 
         <div v-if='x.id === id'>
             <h1>{{ x.title }}</h1>
-            <img v-bind:src="x.webImage.url" alt="image" style="width: 75%" />
+            <img v-bind:src="x.webImage.url" alt="image" style="width: 70%" />
             <div class="container">
               <span class="merri">Title:<p class="pic-title"> {{ x.title }}</p></span>
               <span class="merri">Author:<p class="pic-title"> {{ x.principalOrFirstMaker }}</p></span>
               <span class="merri">Full Title:<p class="pic-title"> {{ x.longTitle }}</p></span>
             </div>
-            <a :href="x.links.web" class="btn btn-dark btn-lg"> View this item on the Rijksmuseum website</a>
+            <a :href="x.links.web" class="btn btn-dark btn-lg"><i class="fas fa-search"></i> View this item on the Rijksmuseum website</a>
         </div>
 
     </div>
@@ -79,8 +79,8 @@
   }
 
   .btn:hover{
-    background-color: #DCDCDC;
-    color: black; 
+    background-color:black; 
+    box-shadow: 2px 2px 5px gray; 
   }
 
 </style>

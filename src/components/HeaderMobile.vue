@@ -5,7 +5,7 @@
         <nav role="navigation">
           <ul>
             <li><img src="../assets/icon.png" alt="icon" class="icon-img" /></li>
-            <li><router-link to="/home" class="nav-item mx-auto">HOME</router-link></li>
+            <li><router-link to="/home" class="nav-item mx-auto">HOME</router-link> </li>
             <li><router-link to="/randomizer" class="nav-item mx-auto">RANDOMIZER</router-link> </li>
             <li><p class="nav-item mx-auto" aria-haspopup="true">CATEGORIES <i class="fas fa-caret-down"></i></p>
               <ul class="dropdown" aria-label="submenu">
@@ -25,12 +25,6 @@
 
 
 <style scoped> 
-
-  .icon-img{
-    height: 35px; 
-    background-color: white; 
-    border-radius:50%;
-  }
   
   .nav-item {
     color:white; 
@@ -49,6 +43,10 @@
   p{
     margin-bottom: 0;
   }
+
+  .icon-img{
+    height: 25px; background-color: white; border-radius:50%;
+  }
   
   ul {
     background: black;
@@ -61,7 +59,6 @@
     color: white;
     display: block;
     float: left;
-    margin-right: 8rem; 
     padding: 1rem;
     position: relative;
     text-decoration: none;
@@ -99,5 +96,6 @@
     clear: both;
     width: 100%;
   }
+
 
 </style>

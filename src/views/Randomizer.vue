@@ -1,14 +1,15 @@
 <template>
   <div class="randomizer">
-    <div class="container">
-        <button @click="atClick()" class="btn btn-dark btn-lg random-btn">Generate a new random item</button>
-    </div> 
 
     <div class="content">
         <div v-if='oneObject'>
-            <img v-bind:src="oneObject.webImage.url" alt="image" style="width: 55%" />
+            <img v-bind:src="oneObject.webImage.url" alt="image" class="random-img" />
             <p class="pic-title"> {{ oneObject.longTitle }}</p>
-            <a :href="oneObject.links.web" class="btn btn-dark btn-lg view-btn"> View this item on the Rijksmuseum website</a>
+            <span>
+                <button @click="atClick()" class="btn btn-dark btn-lg random-btn"> <i class="fas fa-redo-alt fa-sm" style="color:#EC9706;"> </i> Generate a new random item</button>
+                <a :href="oneObject.links.web" class="btn btn-dark btn-lg random-btn"> <i class="fas fa-search fa-sm" style="color:#EC9706;"></i> View this item on the Rijksmuseum website</a>
+            </span>
+            
         </div>          
     </div>   
 
@@ -78,6 +79,10 @@ export default defineComponent({
         margin-bottom: 50px;
     }
 
+    .random-img{
+        height: 40vw; 
+    }
+
     .pic-title{
         font-family: 'Merriweather Sans', sans-serif;
         font-size: 2rem;
@@ -85,14 +90,13 @@ export default defineComponent({
         margin-bottom: 60px;
     }
 
-    .random-btn:hover{
-        background-color: #303030;
-        color: lightblue; 
+    .random-btn{
+        margin: 10px;
     }
 
-    .view-btn:hover{
-        background-color: #DCDCDC;
-        color: black; 
+    .random-btn:hover{
+        background-color: black;
+        box-shadow: 2px 2px 5px gray; 
     }
 
 </style>

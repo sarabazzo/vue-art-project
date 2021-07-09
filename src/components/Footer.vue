@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <p> &copy; {{ getYear()}} | <router-link to="/sitemap" class="router">Sitemap</router-link> </p>
+    <p> &copy; {{ getYear }} | <router-link to="/sitemap" class="router">Sitemap</router-link> </p>
   </div>
 </template>
 
@@ -14,7 +14,7 @@
         year: Number, 
       }
     }, 
-    methods: {
+    computed: {
       getYear: function() {
         const year = new Date().getFullYear()
         return year

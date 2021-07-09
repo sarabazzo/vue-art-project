@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <ItemList maintitle="Landscape Art at the Rijksmuseum" />
+    <ItemList maintitle="Landscape Art at the Rijksmuseum" />  
   </div>  
 </template>
 

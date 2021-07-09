@@ -2,17 +2,20 @@
 
   <div class="top-section">
     <h1> {{ maintitle }} </h1>
-    <button @click="handleClickTitle('title')" class="btn btn-dark btn-sm"> Sort by Title</button>
-    <button @click="handleClickAuthor('principalOrFirstMaker')" class="btn btn-dark btn-sm">Sort by Author</button>
   </div>
 
-  <div class="container">
+  <p class="sorting">Sort by: 
+      <button @click="handleClickTitle('title')" class="btn"> Title</button> |
+      <button @click="handleClickAuthor('principalOrFirstMaker')" class="btn">Author</button>
+  </p>
+
+  <div class="img-container">
     <div v-if="pictures"> 
       <div class="row">
-          <transition-group  name="list" tag="div" class="col-lg-6 col-md-12" v-for="pic in pictures" :key="pic.id">
+          <transition-group  name="list" tag="div" class="col-lg-4 col-md-12" v-for="pic in pictures" :key="pic.id">
             <div class="card">
               <router-link :to="{ name: 'PaintingDetails', params: { id: pic.id } }" class="router">
-                <img v-bind:src="pic.webImage.url" alt="art image" style="width:80%;" />
+                <img v-bind:src="pic.webImage.url" alt="art image" style="width:80%;" class="img" />
                 <div class="card-body">
                   <p class="pic-title"> {{ pic.title }} </p>
                   <p class="pic-author"> {{ pic.principalOrFirstMaker }}</p>
@@ -41,7 +44,7 @@
       
       // API CALL
       mounted() {
-      fetch('https://www.rijksmuseum.nl/api/nl/collection?key=4MZu3ZFk&p=1&ps=10&imgonly=True&q=landschap' )
+      fetch('https://www.rijksmuseum.nl/api/nl/collection?key=4MZu3ZFk&p=1&ps=10&imgonly=True&q=landschap')
         .then(res => res.json())
         .then(data => this.pictures = data.artObjects)
         .catch(err => console.log(err.message))      
@@ -79,31 +82,55 @@
 <style scoped>
 
   .top-section{
-    background-color: #C0C0C0;
-    padding-top: 45px;
+    background-color: #DCDCDC; 
+    background-image: linear-gradient(#B0B0B0, #F0F0F0);
+    padding-top: 70px;
     padding-bottom: 30px;
-    margin-bottom: 30px; 
+    margin-bottom: 10px; 
   }
 
   h1{
     font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
-    padding-bottom: 25px;
+    margin-top: 10px; 
   }
 
   .btn{
     margin: 10px;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-  }
-  
-  .btn:hover{
-    background-color: white;
-    color: black; 
+    font-size: 0.9rem;
+    margin: 0; 
   }
 
-  .container{
-    margin-top: 60px; 
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .btn:hover{
+    text-decoration: underline;
+    color: #EC9706; 
+    font-weight: bold;
+  }
+
+  .sorting{ 
+    text-align: left;
+    margin-left: 10%;
+    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .img{
+    width: 100%; 
+    height: 20vw; 
+    object-fit: cover;
+    margin-top: 20px; 
+  }
+
+  .img-container{
+    margin-top: 20px; 
+    margin-left: 8%; 
+    margin-right: 8%; 
   }
 
   .list-move {
@@ -111,13 +138,14 @@
   }
 
   .card{
-    border: none; 
+    border: none;  
     background-color: #F0F0F0;
     margin-bottom: 40px;
   }
 
   .card:hover{
     background-color: #E8E8E8; 
+    box-shadow: 5px 5px 5px #A9A9A9;
   }
 
   .router{

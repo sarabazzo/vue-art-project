@@ -13,15 +13,26 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('../views/main/PaintingDetails.vue')
   },
   {
-    path:'/categories', 
-    name: 'Categories', 
-    component: () => import('../views/Categories.vue')
-  },
-  {
     path: '/randomizer',
     name: 'Randomizer',
     component: () => import('../views/Randomizer.vue')
   }, 
+  //Categories
+  {
+    path: '/paintings', 
+    name: 'Paintings', 
+    component: () => import('../views/categories/Paintings.vue')
+  },
+  {
+    path: '/drawings', 
+    name: 'Drawings', 
+    component: () => import('../views/categories/Drawings.vue') 
+  },
+  {
+    path: '/prints', 
+    name: 'Prints', 
+    component: () => import('../views/categories/Prints.vue') 
+  },
   //Redirect
   {
     path: '/', 
